@@ -206,9 +206,11 @@ function deleteTransaction(userId, id) {
  */
 function clearAllUserData(userId) {
   const database = getDb();
-  const stmt = database.prepare(`DELETE FROM transactions WHERE user_id = ?`);
-  const result = stmt.run(userId);
-  return result.changes;
+  const txStmt = database.prepare(`DELETE FROM transactions WHERE user_id = ?`);
+  const txResult = txStmt.run(userId);
+  const userStmt = database.prepare(`DELETE FROM users WHERE user_id = ?`);
+  userStmt.run(userId);
+  return txResult.changes;
 }
 
 /**
