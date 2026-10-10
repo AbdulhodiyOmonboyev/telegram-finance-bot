@@ -10,6 +10,7 @@ Render Dashboard: **[https://dashboard.render.com/web/srv-db53c9jrjlhs73c9d0r0](
 
 ## 🌟 Asosiy imkoniyatlari
 
+- 👤 **Foydalanuvchi hisobi (Ro'yxatdan o'tish)**: Botdan foydalanishdan oldin foydalanuvchi ism-familiyasi va telefon raqami (kontakt tugmasi orqali) orqali akkaunt ochadi.
 - ➕ **Kirim qo'shish**: Maosh, savdo, sovg'a yoki boshqa daromadlarni kiritish.
 - ➖ **Chiqim qo'shish**: Kundalik xarajatlarni toifalari (*Oziq-ovqat, Transport, Kommunal, Kiyim, Dorixona, Kafe va h.k.*) yoki erkin izoh bilan kiritish.
 - 💰 **Balans va statistika**:

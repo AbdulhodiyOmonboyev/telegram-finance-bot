@@ -14,10 +14,18 @@ async function testAll() {
   assert.strictEqual(formatMoney(1500000), "1 500 000 so'm");
   console.log('✅ Utils test passed!');
 
-  console.log('--- 2. Testing Database ---');
+  console.log('--- 2. Testing Database & User Registration ---');
   db.initDb();
   const testUserId = 99999999;
   db.clearAllUserData(testUserId);
+
+  // Test registration
+  assert.strictEqual(db.isUserRegistered(testUserId), false);
+  const registered = db.registerUser(testUserId, 'Abdulhodiy Omonboyev', 'abdulhodiy', '+998901234567');
+  assert.strictEqual(registered.full_name, 'Abdulhodiy Omonboyev');
+  assert.strictEqual(registered.phone_number, '+998901234567');
+  assert.strictEqual(db.isUserRegistered(testUserId), true);
+  console.log('✅ User registration test passed!');
 
   // Add income
   const inc1 = db.addTransaction(testUserId, 'kirim', 5000000, 'Oylik maosh', 'Oktabr oyligi');

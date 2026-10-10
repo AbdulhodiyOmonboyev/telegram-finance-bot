@@ -28,6 +28,14 @@ function initDb() {
       created_at TEXT NOT NULL
     );
 
+    CREATE TABLE IF NOT EXISTS users (
+      user_id INTEGER PRIMARY KEY,
+      full_name TEXT NOT NULL,
+      username TEXT DEFAULT '',
+      phone_number TEXT NOT NULL,
+      registered_at TEXT NOT NULL
+    );
+
     CREATE INDEX IF NOT EXISTS idx_user_date ON transactions(user_id, created_at);
   `);
 }
@@ -203,6 +211,41 @@ function clearAllUserData(userId) {
   return result.changes;
 }
 
+/**
+ * Foydalanuvchini ro'yxatdan o'tkazish
+ */
+function registerUser(userId, fullName, username = '', phoneNumber = '') {
+  const database = getDb();
+  const registeredAt = new Date().toISOString();
+  const stmt = database.prepare(`
+    INSERT INTO users (user_id, full_name, username, phone_number, registered_at)
+    VALUES (?, ?, ?, ?, ?)
+    ON CONFLICT(user_id) DO UPDATE SET
+      full_name = excluded.full_name,
+      username = excluded.username,
+      phone_number = excluded.phone_number
+  `);
+  stmt.run(userId, fullName.trim(), (username || '').trim(), phoneNumber.trim(), registeredAt);
+  return getUser(userId);
+}
+
+/**
+ * Foydalanuvchi ma'lumotlarini olish
+ */
+function getUser(userId) {
+  const database = getDb();
+  const stmt = database.prepare(`SELECT * FROM users WHERE user_id = ?`);
+  return stmt.get(userId);
+}
+
+/**
+ * Foydalanuvchi ro'yxatdan o'tganligini tekshirish
+ */
+function isUserRegistered(userId) {
+  const user = getUser(userId);
+  return !!user && !!user.phone_number;
+}
+
 module.exports = {
   getDb,
   initDb,
@@ -212,5 +255,9 @@ module.exports = {
   getCategorySummary,
   getRecentTransactions,
   deleteTransaction,
-  clearAllUserData
+  clearAllUserData,
+  registerUser,
+  getUser,
+  isUserRegistered
 };
+

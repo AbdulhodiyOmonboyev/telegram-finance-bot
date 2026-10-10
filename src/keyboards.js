@@ -7,7 +7,18 @@ function getMainMenu() {
   return Markup.keyboard([
     ['➕ Kirim', '➖ Chiqim'],
     ['💰 Balans', '📊 Excel hisobot'],
-    ['📜 So\'nggi amallar', 'ℹ️ Yordam']
+    ['📜 So\'nggi amallar', '👤 Profilim'],
+    ['ℹ️ Yordam']
+  ]).resize();
+}
+
+/**
+ * Telefon raqam so'rash klaviaturasi
+ */
+function getPhoneRequestMenu() {
+  return Markup.keyboard([
+    [Markup.button.contactRequest('📱 Telefon raqamni yuborish')],
+    ['❌ Bekor qilish']
   ]).resize();
 }
 
@@ -107,6 +118,7 @@ function getDeleteTxButton(txId) {
 module.exports = {
   getMainMenu,
   getCancelMenu,
+  getPhoneRequestMenu,
   getExpenseCategories,
   getIncomeCategories,
   getExcelPeriodMenu,
