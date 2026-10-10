@@ -1,0 +1,19 @@
+{
+  "name": "telegram-finance-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test_bot.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^18.0.7",
+    "exceljs": "^4.4.0",
+    "telegraf": "^4.16.3"
+  }
+}
