@@ -3,8 +3,8 @@
 Ushbu Telegram boti shaxsiy xarajatlar va daromadlarni kunlik qayd etib borish, balansni kuzatish hamda **1 haftalik**, **1 oylik** yoki barcha davr uchun batafsil hisobotni **chiroyli formatlangan Excel (.xlsx)** faylida tashlab berish uchun maxsus yaratilgan.
 
 Botingiz: **[@Hisob_kitob2_bot](https://t.me/Hisob_kitob2_bot)**  
-Render jonli server: **[https://telegram-finance-bot-fex1.onrender.com](https://telegram-finance-bot-fex1.onrender.com)**  
-Render Dashboard: **[https://dashboard.render.com/web/srv-db53c9jrjlhs73c9d0r0](https://dashboard.render.com/web/srv-db53c9jrjlhs73c9d0r0)**
+Render jonli server: **[https://telegram-finance-bot-uszy.onrender.com](https://telegram-finance-bot-uszy.onrender.com)**  
+Render Dashboard: **[https://dashboard.render.com/web/srv-db9pq9cs728c73cjg64g](https://dashboard.render.com/web/srv-db9pq9cs728c73cjg64g)**
 
 ---
 
